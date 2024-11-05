@@ -1,0 +1,47 @@
+#simple intrest and compound intrest
+
+from tkinter import *
+import math
+root=Tk()
+root.geometry("500x500")
+root.title("simple intrest")
+def simple_intrest():
+ try:
+  principal=float(e1.get())
+  time=float(e2.get())
+  rateofintrest=float(e3.get())
+  si=principal*time*rateofintrest /100
+  ci=principal*math.pow(1+rateofintrest/100,time)
+  e4.delete(0,'end')
+  e4.insert(0,si)
+  e5.delete(0,'end')
+  e5.insert(0,ci)
+ except:
+  messagebox.showinfo("error","please enter correct values")
+  e1.delete(0,'end')
+  e1.focus()
+  e2.delete(0,'end')
+  e3.delete(0,'end')
+lb1=Label(text="principal")
+lb1.grid(row=0,column=0)
+e1=Entry()
+e1.grid(row=0,column=1)
+lb2=Label(text="time")
+lb2.grid(row=1,column=0)
+e2=Entry()
+e2.grid(row=1,column=1)
+lb3=Label(text="rate of intreset(%)")
+lb3.grid(row=2,column=0)
+e3=Entry()
+e3.grid(row=2,column=1)
+lb4=Label(text="si")
+lb4.grid(row=3,column=0)
+e4=Entry()
+e4.grid(row=3,column=1)
+lb5=Label(text="ci")
+lb5.grid(row=4,column=0)
+e5=Entry()
+e5.grid(row=4,column=1)
+b1 = Button(root, text="Calculate", command=simple_intrest)
+b1.grid(row=5, column=0,columnspan=2)
+mainloop()
